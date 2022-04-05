@@ -1,0 +1,33 @@
+﻿<Window x:Class="SystemEscola.Views.EscolaFormWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SystemEscola.Views"
+        mc:Ignorable="d"
+        Title="EscolaFormWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Label Content="Escola - Cadastro" FontSize="30" FontWeight="Normal" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <Label Content="Informações" FontSize="22" FontWeight="Normal" HorizontalAlignment="Left"/>
+            <Label Content="Nome:" FontSize="15"/>
+            <TextBox x:Name="txtNomeEscola" Padding="8" Width="250" HorizontalAlignment="Left"/>
+            <Label Content="CNPJ:" FontSize="15"/>
+            <TextBox x:Name="txtCnpj" Padding="8" Width="250" HorizontalAlignment="Left"/>
+
+            <Label Content="Razão Social:" FontSize="15" Margin="0 -225 0 0" Width="100" Height="30"/>
+            <TextBox x:Name="txtRazaoSocial" Padding="8" Width="250" Margin="0 -220 0 0" Height="40"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
