@@ -26,7 +26,7 @@
             <TextBox x:Name="txtCnpj" Padding="8" Width="250" HorizontalAlignment="Left"/>
 
             <Label Content="Razão Social:" FontSize="15" Margin="0 -225 0 0" Width="100" Height="30"/>
-            <TextBox x:Name="txtRazaoSocial" Padding="8" Width="250" Margin="0 -220 0 0" Height="40"/>
+            <TextBox x:Name="txtRazaoSocial" Padding="8" Width="250" Margin="0 -160 0 0" Height="40"/>
         </StackPanel>
 
     </Grid>
