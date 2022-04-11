@@ -14,19 +14,28 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+
         <StackPanel Grid.Row="0">
+            
             <Label Content="Escola - Cadastro" FontSize="30" FontWeight="Normal" HorizontalAlignment="Center"/>
+            
         </StackPanel>
 
         <StackPanel Grid.Row="1">
+            
             <Label Content="Informações" FontSize="22" FontWeight="Normal" HorizontalAlignment="Left"/>
-            <Label Content="Nome:" FontSize="15"/>
-            <TextBox x:Name="txtNomeEscola" Padding="8" Width="250" HorizontalAlignment="Left"/>
-            <Label Content="CNPJ:" FontSize="15"/>
-            <TextBox x:Name="txtCnpj" Padding="8" Width="250" HorizontalAlignment="Left"/>
+            <Label Content="Nome:" FontSize="15" Margin="8 0 0 0"/>
+            <TextBox x:Name="txtNomeEscola" Padding="8" Width="285" Margin="10 0 0 0" HorizontalAlignment="Left"/>
+            <Label Content="CNPJ:" FontSize="15" Margin="8 0 0 0"/>
+            <TextBox x:Name="txtCnpj" Padding="8" Width="250" Margin="10 0 0 0" HorizontalAlignment="Left"/>
+            <Label Content="Razão Social" FontSize="15" Margin="320 -127 0 0"/>
 
-            <Label Content="Razão Social:" FontSize="15" Margin="0 -225 0 0" Width="100" Height="30"/>
-            <TextBox x:Name="txtRazaoSocial" Padding="8" Width="250" Margin="0 -160 0 0" Height="40"/>
         </StackPanel>
 
     </Grid>
