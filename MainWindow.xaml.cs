@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SystemEscola.Views;
 
 namespace SystemEscola
 {
@@ -23,6 +24,12 @@ namespace SystemEscola
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            EscolaFormWindow view = new EscolaFormWindow();
+            view.ShowDialog();
         }
     }
 }
