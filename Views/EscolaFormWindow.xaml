@@ -14,7 +14,7 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
-        <Rectangle HorizontalAlignment="Center" Height="5" Margin="2" Grid.Row="1" Stroke="#FF4D58FF" VerticalAlignment="Top" Width="1200" Fill="#FF533DF1"/>
+        <Rectangle HorizontalAlignment="Center" Height="5" Margin="2" Grid.Row="1" Stroke="#FF4D58FF" VerticalAlignment="Top" Width="1920" Fill="#FF533DF1"/>
 
         <StackPanel Grid.Row="0">
 
@@ -53,8 +53,8 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Margin="0 0 0 0">
-                <Rectangle HorizontalAlignment="Center" Height="5" Margin="0 0 0 0" Grid.Row="1" Stroke="#FF4D58FF" VerticalAlignment="Bottom" Width="1200" Fill="#FF533DF1"/>
-                <Label Content="Informações Públicas/Privadas" FontSize="16" FontWeight="Normal" HorizontalAlignment="Center"/>
+                <Rectangle HorizontalAlignment="Center" Height="5" Margin="0 0 0 0" Grid.Row="1" Stroke="#FF4D58FF" VerticalAlignment="Bottom" Width="1900" Fill="#FF533DF1"/>
+                <Label Content="Informações de Proprietário" FontSize="16" FontWeight="Normal" HorizontalAlignment="Center"/>
                 <Label Content="Tipo:" FontSize="15" Margin="20 0 0 0"/>
                 <RadioButton x:Name="rdbtPublica" Content="Pública" Margin="70 0 0 0"/>
                 <RadioButton x:Name="rdbtPrivada" Content="Privada" Margin="180 -16 0 0"/>
@@ -80,7 +80,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1">
-                <Rectangle HorizontalAlignment="Center" Height="5" Margin="0 0 0 0" Grid.Row="1" Stroke="#FF4D58FF" VerticalAlignment="Bottom" Width="1200" Fill="#FF533DF1"/>
+                <Rectangle HorizontalAlignment="Center" Height="5" Margin="0 0 0 0" Grid.Row="1" Stroke="#FF4D58FF" VerticalAlignment="Bottom" Width="1920" Fill="#FF533DF1"/>
                 <Label Content="Endereço e Contato" FontSize="15" FontWeight="Normal" HorizontalAlignment="Center"/>
 
                 <Label Content="Telefone:" FontSize="13" Margin="10 0 0 0"/>
@@ -108,7 +108,7 @@
                 <TextBox x:Name="txtCidade" Padding="3" Width="100" HorizontalAlignment="Center" Margin="-16 -31 38 30" Height="25"/>
 
                 <Label Content="Estado:" FontSize="13" Width="50" HorizontalAlignment="Right" Margin="25 -79 123 50"/>
-                <TextBox x:Name="txtEstado" Padding="5" Width="100" HorizontalAlignment="Right" Margin="20 -87 70 0" Height="25"/>
+                <ComboBox x:Name="txtEstado" Padding="5" Width="130" HorizontalAlignment="Right" Margin="20 -87 40 0" Height="25"/>
 
             </StackPanel>
         </Grid>
