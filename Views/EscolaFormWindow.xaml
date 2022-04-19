@@ -108,7 +108,35 @@
                 <TextBox x:Name="txtCidade" Padding="3" Width="100" HorizontalAlignment="Center" Margin="-16 -31 38 30" Height="25"/>
 
                 <Label Content="Estado:" FontSize="13" Width="50" HorizontalAlignment="Right" Margin="25 -79 123 50"/>
-                <ComboBox x:Name="txtEstado" Padding="5" Width="130" HorizontalAlignment="Right" Margin="20 -87 40 0" Height="25"/>
+                <ComboBox x:Name="txtEstado" Padding="5" Width="130" HorizontalAlignment="Right" Margin="20 -87 40 0" Height="25">
+                    <Label Content="Acre"/>
+                    <Label Content="Alagoas"/>
+                    <Label Content="Amapá"/>
+                    <Label Content="Amazonas"/>
+                    <Label Content="Bahia"/>
+                    <Label Content="Ceára"/>
+                    <Label Content="Distrito Federal"/>
+                    <Label Content="Espírito Santos"/>
+                    <Label Content="Goiás"/>
+                    <Label Content="Maranhão"/>
+                    <Label Content="Mato Grosso"/>
+                    <Label Content="Mato Grosso do Sul"/>
+                    <Label Content="Minas Gerais"/>
+                    <Label Content="Pará"/>
+                    <Label Content="Paraíba"/>
+                    <Label Content="Paraná"/>
+                    <Label Content="Pernambuco"/>
+                    <Label Content="Piauí"/>
+                    <Label Content="Rio de Janeiro"/>
+                    <Label Content="Rio Grande do Norte"/>
+                    <Label Content="Rio Grande do Sul"/>
+                    <Label Content="Rondônia"/>
+                    <Label Content="Roraima"/>
+                    <Label Content="Santa Catarina"/>
+                    <Label Content="São Paulo"/>
+                    <Label Content="Sergipe"/>
+                    <Label Content="Tocantis"/>
+                </ComboBox>
 
             </StackPanel>
         </Grid>
