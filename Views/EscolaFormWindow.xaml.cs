@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
+using SystemEscola.Database;
 
 namespace SystemEscola.Views
 {
@@ -57,12 +58,12 @@ namespace SystemEscola.Views
 
             var data_criacao = dtpCricao.SelectedDate?.ToString("yyyy-mm-dd");
 
-            var conexao = new MySqlConnection("server=localhost;database=bd_escola;port=3360;user=root;password=root");
 
             try
             {
-                conexao.Open();
-                var comando = conexao.CreateCommand();
+                var conexao = new Conexao();
+                var comando = conexao.Query();
+
 
                 comando.CommandText = "insert into Escola Values (null, @nome, @razao, @cnpj, @inscricao, @tipo, @data_criacao, @resp, @resp_tel," +
                     "@email, @telefone, @rua, @numero, @bairro, @complemento, @cep, @cidade, @estado);";
