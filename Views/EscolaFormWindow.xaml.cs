@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using SystemEscola.Database;
+using SystemEscola.Models;
 
 namespace SystemEscola.Views
 {
@@ -21,6 +22,8 @@ namespace SystemEscola.Views
     /// </summary>
     public partial class EscolaFormWindow : Window
     {
+        private Escola _escola = new Escola();
+
         public EscolaFormWindow()
         {
             InitializeComponent();
@@ -29,34 +32,24 @@ namespace SystemEscola.Views
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
             //if ((bool) rdbtPublica.IsChecked
-                
-            string nomeFantasia = txtNomeEscola.Text;
-            string razaoSocial = txtRazaosocial.Text;
-            string cnpj = txtCnpj.Text;
-            string inscricao = txtInscestadual.Text;
-            string tipo = "Privada";
-            string responsavel = txtResponsavel.Text;
-            string telefoneResp = txtTelefoneresp.Text;
-            string telefone = txtTelefone.Text;
-            string email = txtEmail.Text;
-            string rua = txtRua.Text;
-            string numero = txtNumero.Text;
-            string bairro = txtBairro.Text;
-            string complemento = txtComplemento.Text;
-            string cep = txtCep.Text;
-            string cidade = txtCidade.Text;
-            string estado = txtEstado.Text;
 
-            if ((bool)rdbtPublica.IsChecked)
-            {
-                tipo = "Pública";
-            }
-            if ((bool)rdbtPrivada.IsChecked)
-            {
-                tipo = "Privada";
-            }
-
-            var data_criacao = dtpCricao.SelectedDate?.ToString("yyyy-mm-dd");
+            _escola.NomeFantasia = txtNomeEscola.Text;
+            _escola.RazaoSocial = txtRazaosocial.Text;
+            _escola.Cnpj = txtCnpj.Text;
+            _escola.Inscricao = txtInscestadual.Text;
+            _escola.SetTipo((bool)rdbtPublica.IsChecked);
+            _escola.Responsavel = txtResponsavel.Text;
+            _escola.TelefoneResp = txtTelefoneresp.Text;
+            _escola.Telefone = txtTelefone.Text;
+            _escola.Email = txtEmail.Text;
+            _escola.Rua = txtRua.Text;
+            _escola.Numero = txtNumero.Text;
+            _escola.Bairro = txtBairro.Text;
+            _escola.Complemento = txtComplemento.Text;
+            _escola.Cep = txtCep.Text;
+            _escola.Cidade = txtCidade.Text;
+            _escola.Estado = txtEstado.Text;
+            _escola.Data_Criacao = dtpCricao.SelectedDate;
 
 
             try
