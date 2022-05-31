@@ -51,6 +51,10 @@ namespace SystemEscola.Views
             _escola.Estado = txtEstado.Text;
             _escola.Data_Criacao = dtpCricao.SelectedDate;
 
+<<<<<<< Updated upstream
+=======
+            var conexao = new MySqlConnection("server=localhost;database=bd_escola;port=3360;user=root;password=Star@pixel4268!");
+>>>>>>> Stashed changes
 
             try
             {
