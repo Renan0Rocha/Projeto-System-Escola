@@ -51,54 +51,17 @@ namespace SystemEscola.Views
             _escola.Estado = txtEstado.Text;
             _escola.Data_Criacao = dtpCricao.SelectedDate;
 
-<<<<<<< Updated upstream
-=======
-            var conexao = new MySqlConnection("server=localhost;database=bd_escola;port=3360;user=root;password=Star@pixel4268!");
->>>>>>> Stashed changes
-
             try
             {
-                var conexao = new Conexao();
-                var comando = conexao.Query();
+                var dao = new EscolaDAO();
+                dao.Insert(_escola);
 
-
-                comando.CommandText = "insert into Escola Values (null, @nome, @razao, @cnpj, @inscricao, @tipo, @data_criacao, @resp, @resp_tel," +
-                    "@email, @telefone, @rua, @numero, @bairro, @complemento, @cep, @cidade, @estado);";
-
-                //null, CAIXA ESCOLAR DA CARLOS D. ESCOLA, 89.451.772/0001-53," +
-                //" 63237482279945, Estadual, 1975-10-18, Severino Julio Elias Vieira, (69) 98329-1840, severinojuliovieira@hawk.com.br," +
-                //" (69) 999210254, Rua das Mangueiras, 499, Jardim Presidencial, Prédio, 76901-042, Ji-Paraná, RO);";
-
-                comando.Parameters.AddWithValue("@nome", nomeFantasia);
-                comando.Parameters.AddWithValue("@razao", razaoSocial);
-                comando.Parameters.AddWithValue("@cnpj", cnpj);
-                comando.Parameters.AddWithValue("@inscricao", inscricao);
-                comando.Parameters.AddWithValue("@tipo", tipo);
-                comando.Parameters.AddWithValue("@data_criacao", data_criacao);
-                comando.Parameters.AddWithValue("@resp", responsavel);
-                comando.Parameters.AddWithValue("@resp_tel", telefoneResp);
-                comando.Parameters.AddWithValue("@email", email);
-                comando.Parameters.AddWithValue("@telefone", telefone);
-                comando.Parameters.AddWithValue("@rua", rua);
-                comando.Parameters.AddWithValue("@numero", numero);
-                comando.Parameters.AddWithValue("@bairro", bairro);
-                comando.Parameters.AddWithValue("@complemento", cep);
-                comando.Parameters.AddWithValue("@cep", cep);
-                comando.Parameters.AddWithValue("@cidade", cidade);
-                comando.Parameters.AddWithValue("@estado", estado);
-
-                var resultado = comando.ExecuteNonQuery();
-
-                if (resultado > 0)
-                {
-                    MessageBox.Show("Registro Salvo");
-                }
+                MessageBox.Show("Registro Salvo");
 
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
     }
 }

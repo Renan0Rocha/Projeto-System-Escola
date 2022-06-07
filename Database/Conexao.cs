@@ -12,11 +12,11 @@ namespace SystemEscola.Database
     {
         private static string host = "localhost";
 
-        private static string port = "3360";
+        private static string port = "3306";
 
         private static string user = "root";
 
-        private static string password = "root";
+        private static string password = "Star@pixel4862+!";
 
         private static string dbname = "bd_escola";
 
@@ -32,9 +32,9 @@ namespace SystemEscola.Database
                 connection.Open();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -47,9 +47,25 @@ namespace SystemEscola.Database
 
                 return command;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
+            }
+        }
+
+        public MySqlCommand Query(string query)
+        {
+            try
+            {
+                command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+
+                return command;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -57,6 +73,5 @@ namespace SystemEscola.Database
         {
             connection.Close();
         }
-
     }
 }

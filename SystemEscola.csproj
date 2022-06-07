@@ -99,6 +99,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Database\Conexao.cs" />
+    <Compile Include="Helpers\DAOHelper.cs" />
     <Compile Include="Models\Escola.cs" />
     <Compile Include="Models\EscolaDAO.cs" />
     <Compile Include="Views\EscolaFormWindow.xaml.cs">
