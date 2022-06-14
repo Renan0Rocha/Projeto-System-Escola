@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SystemEscola.Models;
 
 namespace SystemEscola.Views
 {
@@ -22,6 +23,26 @@ namespace SystemEscola.Views
         public CursoListWindow()
         {
             InitializeComponent();
+            Loaded += CursoListWindow_Loaded;
+        }
+
+        private void CursoListWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            CarregarListagem();
+        }
+        private void CarregarListagem()
+        {
+            try
+            {
+                var dao = new CursoDAO();
+                List<Curso> listaCursos = dao.List();
+
+                dataGridCurso.ItemsSource = listaCursos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

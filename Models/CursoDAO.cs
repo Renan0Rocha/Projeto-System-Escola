@@ -70,8 +70,31 @@ namespace SystemEscola.Models
             {
                 throw ex;
             }
+        }
 
+        public void Delete(Curso t)
+        {
+            try
+            {
+                var query = _conn.Query();
+                query.CommandText = "delete from Curso where id_cur = @id";
 
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var resultado = query.ExecuteNonQuery();
+
+                if (resultado == 0)
+                    throw new Exception("Registro não removido da base de dados." +
+                        "Verifique e tente novamente");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                _conn.Close();
+            }
         }
     }
 }

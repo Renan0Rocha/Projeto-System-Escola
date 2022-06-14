@@ -45,5 +45,11 @@ namespace SystemEscola.Views
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnListaCurso_Click(object sender, RoutedEventArgs e)
+        {
+            CursoListWindow view = new CursoListWindow();
+            view.ShowDialog();
+        }
     }
 }

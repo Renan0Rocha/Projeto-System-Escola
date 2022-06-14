@@ -15,6 +15,40 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="CursoListWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Cursos"
+                       Background="BurlyWood"
+                       Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                       Padding="10"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" Margin="5,5,5,5" x:Name="dataGridCurso" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nome do Curso" Binding="{Binding NomeCurso}"/>
+                <DataGridTextColumn Header="Carga Horária" Binding="{Binding CargaHoraria}"/>
+                <DataGridTextColumn Header="Turno" Binding="{Binding Turno}"/>
+                <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}"/>
+
+                <DataGridTemplateColumn Header="Ações">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" 
+                                        Content="{materialDesign:PackIcon Eye}"
+                                        ToolTip="Visualizar Registro" Margin="0 0 5 0"/>
+                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" 
+                                        Content="{materialDesign:PackIcon Delete }"
+                                        ToolTip="Excluir Registro"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
