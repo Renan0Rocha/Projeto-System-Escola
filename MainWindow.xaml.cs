@@ -26,9 +26,15 @@ namespace SystemEscola
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnCadEscola_Click(object sender, RoutedEventArgs e)
         {
             EscolaFormWindow view = new EscolaFormWindow();
+            view.ShowDialog();
+        }
+
+        private void btnCadCurso_Click(object sender, RoutedEventArgs e)
+        {
+            CursoFormWindow view = new CursoFormWindow();
             view.ShowDialog();
         }
     }

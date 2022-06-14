@@ -19,7 +19,7 @@ namespace SystemEscola.Models
             {
                 var comando = _conn.Query();
 
-                comando.CommandText = "INSERT INTO escola VALUES " +
+                comando.CommandText = "INSERT INTO Escola VALUES " +
                 "(null, @nome, @razao, @cnpj, @inscricao, @tipo, @data_criacao, @resp, @resp_tel, " +
                 "@email, @telefone, @rua, @numero, @bairro, @complemento, @cep, @cidade, @estado);";
 
@@ -64,7 +64,7 @@ namespace SystemEscola.Models
                 var lista = new List<Escola>();
                 var comando = _conn.Query();
 
-                comando.CommandText = "SELECT * FROM escola_esc";
+                comando.CommandText = "SELECT * FROM Escola";
 
                 MySqlDataReader reader = comando.ExecuteReader();
 

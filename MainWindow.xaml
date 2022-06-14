@@ -7,7 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="315,178,0,0" VerticalAlignment="Top" Height="69" Width="126" Click="Button_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <Button x:Name="btnCadEscola" Content="Cadastrar Escola" FontSize="20" Padding="5" Width="200" Height="50" HorizontalAlignment="Left" Margin="130 130 0 0" Click="btnCadEscola_Click"/>
+            <Button x:Name="btnCadCurso" Content="Cadastrar Curso" FontSize="20" Padding="5" Width="200" Height="50" HorizontalAlignment="Right" Margin="0 -50 130 0" Click="btnCadCurso_Click"/>
+        </StackPanel>
+
 
     </Grid>
 </Window>
