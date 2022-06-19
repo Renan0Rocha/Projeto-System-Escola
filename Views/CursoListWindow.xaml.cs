@@ -44,5 +44,9 @@ namespace SystemEscola.Views
                 MessageBox.Show(ex.Message);
             }
         }
+        private void btnExcluirCurso_Click(object sender, RoutedEventArgs e)
+        {
+            var itemSelected = dataGridCurso.SelectedItems as //aqui
+        }
     }
 }
