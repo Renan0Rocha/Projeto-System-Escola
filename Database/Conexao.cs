@@ -11,12 +11,12 @@ namespace SystemEscola.Database
     internal class Conexao
     {
         private static string host = "localhost";
-        //3306
-        private static string port = "3360";
+        //3306  &  3360
+        private static string port = "3306";
 
         private static string user = "root";
-        //Star@pixel4862+!
-        private static string password = "root";
+        //Star@pixel4862+!  &   root  & Star@pixel4268!(notebook)
+        private static string password = "Star@pixel4268!";
 
         private static string dbname = "bd_escola";
 
