@@ -65,16 +65,12 @@ namespace SystemEscola.Models
                     lista.Add(curso);
 
                 }
-
+                reader.Close();
                 return lista;
             }
             catch(Exception ex)
             {
                 throw ex;
-            }
-            finally
-            {
-                _conn.Close();
             }
         }
 
@@ -83,12 +79,12 @@ namespace SystemEscola.Models
             
             try
             {
-                var query = _conn.Query();
-                query.CommandText = "delete from Curso where id_cur = @id";
+                var comando = _conn.Query();
+                comando.CommandText = "delete from Curso where id_cur = @id";
 
-                query.Parameters.AddWithValue("@id", t.Id);
+                comando.Parameters.AddWithValue("@id", t.Id);
 
-                var resultado = query.ExecuteNonQuery();
+                var resultado = comando.ExecuteNonQuery();
 
                 if (resultado == 0)
                     throw new Exception("Registro não removido da base de dados." +
@@ -97,10 +93,6 @@ namespace SystemEscola.Models
             catch (Exception e)
             {
                 throw e;
-            }
-            finally
-            {
-                _conn.Close();
             }
         }
 
@@ -111,7 +103,7 @@ namespace SystemEscola.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "UPDATE Curso SET " +
-                    "nome_cur = @nome, carga_horaria_cur = @cargaHoraria, tuno_cur = @turno, descricao_cur = @descricao" +
+                    "nome_cur = @nome, carga_horaria_cur = @cargaHoraria, turno_cur = @turno, descricao_cur = @descricao" +
                     " Where id_cur = @id";
 
                 comando.Parameters.AddWithValue("@id", curso.Id);

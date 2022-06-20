@@ -27,8 +27,22 @@ namespace SystemEscola.Views
         public EscolaFormWindow()
         {
             InitializeComponent();
+            Loaded += CadastroEscola_Loaded;
         }
-
+        public EscolaFormWindow(Escola escola)
+        {
+            InitializeComponent();
+            Loaded += CadastroEscola_Loaded;
+            _escola = escola;
+        }
+        private void CadastroEscola_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtNomeEscola.Text = _escola.NomeFantasia;
+            txtRazaosocial.Text = _escola.RazaoSocial;
+            txtCnpj.Text = _escola.Cnpj;
+            txtInscestadual.Text = _escola.Inscricao;
+            //radio button
+        }
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
             //if ((bool) rdbtPublica.IsChecked
@@ -62,6 +76,12 @@ namespace SystemEscola.Views
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnListaEscola_Click(object sender, RoutedEventArgs e)
+        {
+            EscolaListWindow view = new EscolaListWindow();
+            view.ShowDialog();
         }
     }
 }

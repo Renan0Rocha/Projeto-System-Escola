@@ -102,5 +102,76 @@ namespace SystemEscola.Models
                 throw ex;
             }
         }
+
+        public void Delete(Escola t)
+        {
+            try
+            {
+                var comando = _conn.Query();
+                comando.CommandText = "delete from Escola where id_esc = @id";
+
+                comando.Parameters.AddWithValue("@id", t.Id);
+
+                var resultado = comando.ExecuteNonQuery();
+
+                if (resultado == 0)
+                    throw new Exception("Registro não removido da base de dados." +
+                        "Verifique e tente novamente");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
+        public void Update(Escola escola)
+        {
+            try
+            {
+                var comando = _conn.Query();
+
+                comando.CommandText = "UPDATE Escola SET " +
+                    "id_esc = @id, nome_fantasia_esc = @nomeFantasia, razao_social_esc = @razaoSocial, cnpj_esc = @cnpj, insc_estadual_esc = @inscEstadual," +
+                    "tipo_esc = @tipo, data_criacao_esc = @data_criacao, responsavel_esc = @resp, responsavel_telefone_esc = @resp_tel," +
+                    "email_esc = @email, telefone_esc = @telefone, rua_esc = @rua, numero_esc = @numero, bairro_esc = @bairro, complemento_esc = @complemento," +
+                    "cep_esc = @cep, cidade_esc = @cidade, estado_esc = @estado Where id_esc = @id";
+
+
+                comando.Parameters.AddWithValue("@id", escola.Id);
+                comando.Parameters.AddWithValue("@nome", escola.NomeFantasia);
+                comando.Parameters.AddWithValue("@razaoSocial", escola.RazaoSocial);
+                comando.Parameters.AddWithValue("@cnpj", escola.Cnpj);
+                comando.Parameters.AddWithValue("@inscEstadual", escola.Inscricao);
+                comando.Parameters.AddWithValue("@tipo", escola.Tipo);
+                comando.Parameters.AddWithValue("@data_criacao", escola.Data_Criacao?.ToString("yyyy-MM-dd"));
+                comando.Parameters.AddWithValue("@resp", escola.Responsavel);
+                comando.Parameters.AddWithValue("@resp_tel", escola.TelefoneResp);
+                comando.Parameters.AddWithValue("@email", escola.Email);
+                comando.Parameters.AddWithValue("@telefone", escola.Telefone);
+                comando.Parameters.AddWithValue("@rua", escola.Rua);
+                comando.Parameters.AddWithValue("@numero", escola.Numero);
+                comando.Parameters.AddWithValue("@bairro", escola.Bairro);
+                comando.Parameters.AddWithValue("@complemento", escola.Complemento);
+                comando.Parameters.AddWithValue("@cep", escola.Cep);
+                comando.Parameters.AddWithValue("@cidade", escola.Cidade);
+                comando.Parameters.AddWithValue("@estado", escola.Estado);
+
+
+                var resultado = comando.ExecuteNonQuery();
+
+                if (resultado == 0)
+                {
+                    throw new Exception("Ocorreram erros ao salvar as informações");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

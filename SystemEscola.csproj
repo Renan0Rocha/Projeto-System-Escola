@@ -121,6 +121,9 @@
     <Compile Include="Views\EscolaFormWindow.xaml.cs">
       <DependentUpon>EscolaFormWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EscolaListWindow.xaml.cs">
+      <DependentUpon>EscolaListWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -142,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EscolaFormWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EscolaListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

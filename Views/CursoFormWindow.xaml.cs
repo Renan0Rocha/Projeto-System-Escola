@@ -57,10 +57,12 @@ namespace SystemEscola.Views
                 if (_curso.Id > 0)
                 {
                     dao.Update(_curso);
+                    MessageBox.Show("Registro Atualizado com Sucesso!");
                 }
                 else
                 {
                     dao.Insert(_curso);
+                    MessageBox.Show("Registro Salvo com Sucesso!");
                 }
 
             } catch (Exception ex)
