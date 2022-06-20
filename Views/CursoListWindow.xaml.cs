@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SystemEscola.Models;
+using SystemEscola.Views;
 
 namespace SystemEscola.Views
 {
@@ -46,7 +47,32 @@ namespace SystemEscola.Views
         }
         private void btnExcluirCurso_Click(object sender, RoutedEventArgs e)
         {
-            var itemSelected = dataGridCurso.SelectedItems as //aqui
+            var cursoSelected = dataGridCurso.SelectedItem as Curso;
+
+            var result = MessageBox.Show($"Deseja realmente excluir o curso '{cursoSelected.NomeCurso}'?", "Confirmação de Exclusão",
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if(result == MessageBoxResult.Yes)
+                {
+                    var dao = new CursoDAO();
+                    dao.Delete(cursoSelected);
+                    CarregarListagem();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnAtualizarCurso_Click(object sender, RoutedEventArgs e)
+        {
+            var cursoSelected = dataGridCurso.SelectedItem as Curso;
+            var view = new CursoFormWindow(cursoSelected);
+            view.ShowDialog();
+            CarregarListagem();
         }
     }
 }

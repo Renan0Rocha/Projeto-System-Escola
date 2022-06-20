@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SystemEscola.Models;
 
+
 namespace SystemEscola.Views
 {
     /// <summary>
@@ -24,6 +25,22 @@ namespace SystemEscola.Views
         public CursoFormWindow()
         {
             InitializeComponent();
+            Loaded += CadastroCurso_Loaded;
+        }
+
+        public CursoFormWindow(Curso curso)
+        {
+            InitializeComponent();
+            Loaded += CadastroCurso_Loaded;
+            _curso = curso;
+        }
+
+        private void CadastroCurso_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtNomeCurso.Text = _curso.NomeCurso;
+            txtCargaHoraria.Text = _curso.Descricao;
+            txtTurno.Text = _curso.CargaHoraria;
+            txtDescricao.Text = _curso.Turno;
         }
 
         private void btnSalvarCurso_Click(object sender, RoutedEventArgs e)
@@ -36,9 +53,15 @@ namespace SystemEscola.Views
             try
             {
                 var dao = new CursoDAO();
-                dao.Insert(_curso);
 
-                MessageBox.Show("Registro Salvo");
+                if (_curso.Id > 0)
+                {
+                    dao.Update(_curso);
+                }
+                else
+                {
+                    dao.Insert(_curso);
+                }
 
             } catch (Exception ex)
             {

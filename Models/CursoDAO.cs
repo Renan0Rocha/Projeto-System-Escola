@@ -34,6 +34,7 @@ namespace SystemEscola.Models
                     throw new Exception("Ocorreram erros ao salvar as informações");
                 }
 
+
             }
             catch (Exception ex)
             {
@@ -62,6 +63,7 @@ namespace SystemEscola.Models
                     curso.Descricao = DAOHelper.GetString(reader, "descricao_cur");
 
                     lista.Add(curso);
+
                 }
 
                 return lista;
@@ -70,10 +72,15 @@ namespace SystemEscola.Models
             {
                 throw ex;
             }
+            finally
+            {
+                _conn.Close();
+            }
         }
 
         public void Delete(Curso t)
         {
+            
             try
             {
                 var query = _conn.Query();
@@ -94,6 +101,37 @@ namespace SystemEscola.Models
             finally
             {
                 _conn.Close();
+            }
+        }
+
+        public void Update(Curso curso)
+        {
+            try
+            {
+                var comando = _conn.Query();
+
+                comando.CommandText = "UPDATE Curso SET " +
+                    "nome_cur = @nome, carga_horaria_cur = @cargaHoraria, tuno_cur = @turno, descricao_cur = @descricao" +
+                    " Where id_cur = @id";
+
+                comando.Parameters.AddWithValue("@id", curso.Id);
+                comando.Parameters.AddWithValue("@nome", curso.NomeCurso);
+                comando.Parameters.AddWithValue("@cargaHoraria", curso.CargaHoraria);
+                comando.Parameters.AddWithValue("@turno", curso.Turno);
+                comando.Parameters.AddWithValue("@descricao", curso.Descricao);
+
+
+                var resultado = comando.ExecuteNonQuery();
+
+                if (resultado == 0)
+                {
+                    throw new Exception("Ocorreram erros ao salvar as informações");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }
