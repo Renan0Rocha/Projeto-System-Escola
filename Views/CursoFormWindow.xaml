@@ -43,7 +43,7 @@
 
         <StackPanel Grid.Row="2">
             <Button x:Name="btnSalvarCurso" Content="Salvar" Padding="1" Width="89" HorizontalAlignment="Right" Margin="0 25 25 0" Click="btnSalvarCurso_Click" Cursor="Hand"/>
-            <Button x:Name="btnListaCurso" Content="Lista de Cursos" Padding="1" Width="120" HorizontalAlignment="Right" Margin="0 -30 650 0" Click="btnListaCurso_Click" Cursor="Hand"/>
+
         </StackPanel>
     </Grid>
 </Window>

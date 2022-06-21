@@ -73,8 +73,7 @@ namespace SystemEscola.Views
 
         private void btnListaCurso_Click(object sender, RoutedEventArgs e)
         {
-            CursoListWindow view = new CursoListWindow();
-            view.ShowDialog();
+
         }
     }
 }

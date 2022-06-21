@@ -37,5 +37,17 @@ namespace SystemEscola
             CursoFormWindow view = new CursoFormWindow();
             view.ShowDialog();
         }
+
+        private void btnListaCurso_Click(object sender, RoutedEventArgs e)
+        {
+            CursoListWindow view = new CursoListWindow();
+            view.ShowDialog();
+        }
+
+        private void btnListaEscola_Click(object sender, RoutedEventArgs e)
+        {
+            EscolaListWindow view = new EscolaListWindow();
+            view.ShowDialog();
+        }
     }
 }
