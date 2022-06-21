@@ -16,7 +16,7 @@ namespace SystemEscola.Database
 
         private static string user = "root";
         //Star@pixel4862+!  &   root  & Star@pixel4268!(notebook)
-        private static string password = "Star@pixel4268!";
+        private static string password = "Star@pixel4862+!";
 
         private static string dbname = "bd_escola";
 

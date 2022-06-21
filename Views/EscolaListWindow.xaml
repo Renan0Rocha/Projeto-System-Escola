@@ -13,7 +13,7 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="CursoListWindow" Height="450" Width="800">
+        Title="CursoListWindow" Height="850" Width="1400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -29,14 +29,13 @@
         <DataGrid Grid.Row="1" Margin="5,5,5,5" x:Name="dataGridEscola" IsReadOnly="true"
                       AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nome Fantasia" Binding="{Binding NomeCurso}"/>
-                <DataGridTextColumn Header="Razao Social" Binding="{Binding CargaHoraria}"/>
-                <DataGridTextColumn Header="CNPJ" Binding="{Binding Turno}"/>
-                <DataGridTextColumn Header="Inscrição Estadual" Binding="{Binding Descricao}"/>
-                <DataGridTextColumn Header="Tipo" Binding="{Binding Descricao}"/>
-                <DataGridTextColumn Header="Data de Criação" Binding="{Binding Descricao}"/>
-                <DataGridTextColumn Header="Email" Binding="{Binding Descricao}"/>
-                <DataGridTextColumn Header="Tipo" Binding="{Binding Descricao}"/>
+                <DataGridTextColumn Header="Nome Fantasia" Binding="{Binding NomeFantasia}"/>
+                <DataGridTextColumn Header="CNPJ" Binding="{Binding Cnpj}"/>
+                <DataGridTextColumn Header="Inscrição Estadual" Binding="{Binding Inscricao}"/>
+                <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}"/>
+                <DataGridTextColumn Header="Data de Criação" Binding="{Binding Data_Criacao}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Telefone" Binding="{Binding Telefone}"/>
 
                 <DataGridTemplateColumn Header="Ações">
                     <DataGridTemplateColumn.CellTemplate>

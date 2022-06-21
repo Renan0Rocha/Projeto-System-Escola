@@ -93,7 +93,7 @@ namespace SystemEscola.Models
 
                     lista.Add(escola);
                 }
-
+                reader.Close();
                 return lista;
 
             }
@@ -122,10 +122,6 @@ namespace SystemEscola.Models
             {
                 throw e;
             }
-            finally
-            {
-                _conn.Close();
-            }
         }
         public void Update(Escola escola)
         {
@@ -134,14 +130,15 @@ namespace SystemEscola.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "UPDATE Escola SET " +
-                    "id_esc = @id, nome_fantasia_esc = @nomeFantasia, razao_social_esc = @razaoSocial, cnpj_esc = @cnpj, insc_estadual_esc = @inscEstadual," +
-                    "tipo_esc = @tipo, data_criacao_esc = @data_criacao, responsavel_esc = @resp, responsavel_telefone_esc = @resp_tel," +
-                    "email_esc = @email, telefone_esc = @telefone, rua_esc = @rua, numero_esc = @numero, bairro_esc = @bairro, complemento_esc = @complemento," +
-                    "cep_esc = @cep, cidade_esc = @cidade, estado_esc = @estado Where id_esc = @id";
+                    "nome_fantasia_esc = @nomeFantasia, razao_social_esc = @razaoSocial, cnpj_esc = @cnpj, insc_estadual_esc = @inscEstadual, tipo_esc = @tipo, " +
+                    "data_criacao_esc = @data_criacao, responsavel_esc = @resp, responsavel_telefone_esc = @resp_tel, email_esc = @email, " +
+                    "telefone_esc = @telefone, rua_esc = @rua, numero_esc = @numero, bairro_esc = @bairro, complemento_esc = @complemento, cep_esc = " +
+                    "@cep, cidade_esc = @cidade, estado_esc = @estado" +
+                    " Where id_esc = @id";
 
 
                 comando.Parameters.AddWithValue("@id", escola.Id);
-                comando.Parameters.AddWithValue("@nome", escola.NomeFantasia);
+                comando.Parameters.AddWithValue("@nomeFantasia", escola.NomeFantasia);
                 comando.Parameters.AddWithValue("@razaoSocial", escola.RazaoSocial);
                 comando.Parameters.AddWithValue("@cnpj", escola.Cnpj);
                 comando.Parameters.AddWithValue("@inscEstadual", escola.Inscricao);

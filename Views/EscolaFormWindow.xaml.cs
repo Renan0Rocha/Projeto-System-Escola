@@ -41,6 +41,26 @@ namespace SystemEscola.Views
             txtRazaosocial.Text = _escola.RazaoSocial;
             txtCnpj.Text = _escola.Cnpj;
             txtInscestadual.Text = _escola.Inscricao;
+            if (_escola.Tipo == "Público")
+            {
+                rdbtPublica.IsChecked = true;
+            }
+            else
+            {
+                rdbtPrivada.IsChecked = true;
+            }
+            txtResponsavel.Text = _escola.Responsavel;
+            txtTelefoneresp.Text = _escola.TelefoneResp;
+            txtTelefone.Text = _escola.Telefone;
+            txtEmail.Text = _escola.Email;
+            txtRua.Text = _escola.Rua;
+            txtNumero.Text = _escola.Numero;
+            txtBairro.Text = _escola.Bairro;
+            txtComplemento.Text = _escola.Complemento;
+            txtCep.Text = _escola.Cep;
+            txtCidade.Text = _escola.Cidade;
+            txtEstado.Text = _escola.Estado;
+            dtpCricao.SelectedDate = _escola.Data_Criacao;
             //radio button
         }
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
@@ -68,11 +88,20 @@ namespace SystemEscola.Views
             try
             {
                 var dao = new EscolaDAO();
-                dao.Insert(_escola);
 
-                MessageBox.Show("Registro Salvo");
+                if (_escola.Id > 0)
+                {
+                    dao.Update(_escola);
+                    MessageBox.Show("Registro Atualizado com Sucesso!");
+                }
+                else
+                {
+                    dao.Insert(_escola);
+                    MessageBox.Show("Registro Salvo com Sucesso!");
+                }
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
