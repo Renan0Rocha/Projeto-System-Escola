@@ -51,6 +51,10 @@ namespace SystemEscola.Views
             _curso.CargaHoraria = txtCargaHoraria.Text;
             _curso.Turno = txtTurno.Text;
             _curso.Descricao = txtDescricao.Text;
+            if (cmbEscola.SelectedItem != null)
+            {
+                _curso.Escola = cmbEscola.SelectedItem as Escola;
+            }
 
             try
             {

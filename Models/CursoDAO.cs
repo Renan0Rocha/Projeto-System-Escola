@@ -26,7 +26,7 @@ namespace SystemEscola.Models
                 comando.Parameters.AddWithValue("@carga_horaria", curso.CargaHoraria);
                 comando.Parameters.AddWithValue("@turno", curso.Turno);
                 comando.Parameters.AddWithValue("@descricao", curso.Descricao);
-                comando.Parameters.AddWithValue("@escola", curso.Escola);
+                comando.Parameters.AddWithValue("@escola", curso.Escola.Id);
 
                 var resultado = comando.ExecuteNonQuery();
 
