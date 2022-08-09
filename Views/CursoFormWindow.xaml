@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SystemEscola.Views"
         mc:Ignorable="d"
-        Title="CursoFormWindow" Height="450" Width="800">
+        Title="CursoFormWindow" Height="500" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="50"/>
 
         </Grid.RowDefinitions>
         
@@ -39,10 +39,17 @@
             <Label Content="Descricao:" FontSize="18" Margin="450 -65 0 0"/>
             <TextBox x:Name="txtDescricao" Padding="5" Width="250" Margin="450 -30 0 0" HorizontalAlignment="Left"/>
 
+            <ComboBox x:Name="cmbEscola" Margin="0 40 0 0"
+                      Style="{StaticResource MaterialDesignFilledComboBox}"
+                      DisplayMemberPath="NomeFantasia"
+                      SelectedValuePath="Id" Width="300" SelectionChanged="cmbEscola_SelectionChanged"
+                      >
+            </ComboBox>
+
         </StackPanel>
 
         <StackPanel Grid.Row="2">
-            <Button x:Name="btnSalvarCurso" Content="Salvar" Padding="1" Width="89" HorizontalAlignment="Right" Margin="0 25 25 0" Click="btnSalvarCurso_Click" Cursor="Hand"/>
+            <Button x:Name="btnSalvarCurso" Content="Salvar" Padding="1" Width="89" HorizontalAlignment="Right" Margin="0 10 25 0" Click="btnSalvarCurso_Click" Cursor="Hand"/>
 
         </StackPanel>
     </Grid>

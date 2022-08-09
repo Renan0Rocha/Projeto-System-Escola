@@ -20,12 +20,13 @@ namespace SystemEscola.Models
                 var comando = _conn.Query();
 
                 comando.CommandText = "INSERT INTO Curso VALUES " +
-                "(null, @nome_curso, @carga_horaria, @turno, @descricao);";
+                "(null, @nome_curso, @carga_horaria, @turno, @descricao, @escola);";
 
                 comando.Parameters.AddWithValue("@nome_curso", curso.NomeCurso);
                 comando.Parameters.AddWithValue("@carga_horaria", curso.CargaHoraria);
                 comando.Parameters.AddWithValue("@turno", curso.Turno);
                 comando.Parameters.AddWithValue("@descricao", curso.Descricao);
+                comando.Parameters.AddWithValue("@escola", curso.Escola);
 
                 var resultado = comando.ExecuteNonQuery();
 

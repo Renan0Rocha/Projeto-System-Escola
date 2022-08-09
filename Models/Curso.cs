@@ -13,5 +13,6 @@ namespace SystemEscola.Models
         public string CargaHoraria { get; set; }
         public string Turno { get; set; }
         public string Descricao { get; set; }
+        public Escola Escola { get; set; }
     }
 }

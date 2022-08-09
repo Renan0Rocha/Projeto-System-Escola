@@ -25,14 +25,16 @@ namespace SystemEscola.Views
         public CursoFormWindow()
         {
             InitializeComponent();
+            CarregarListagem();
             Loaded += CadastroCurso_Loaded;
         }
 
         public CursoFormWindow(Curso curso)
         {
             InitializeComponent();
-            Loaded += CadastroCurso_Loaded;
             _curso = curso;
+            CarregarListagem();
+            Loaded += CadastroCurso_Loaded;
         }
 
         private void CadastroCurso_Loaded(object sender, RoutedEventArgs e)
@@ -72,6 +74,25 @@ namespace SystemEscola.Views
         }
 
         private void btnListaCurso_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void CarregarListagem()
+        {
+            try
+            {
+                var dao = new EscolaDAO();
+                List<Escola> listaEscolas = dao.List();
+
+                cmbEscola.ItemsSource = listaEscolas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void cmbEscola_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
