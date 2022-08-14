@@ -42,7 +42,7 @@
             <ComboBox x:Name="cmbEscola" Margin="0 40 0 0"
                       Style="{StaticResource MaterialDesignFilledComboBox}"
                       DisplayMemberPath="NomeFantasia"
-                      SelectedValuePath="Id" Width="300" SelectionChanged="cmbEscola_SelectionChanged"
+                      SelectedValuePath="Id" Width="300" 
                       >
             </ComboBox>
 
