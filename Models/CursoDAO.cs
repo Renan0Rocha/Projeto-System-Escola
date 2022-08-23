@@ -50,7 +50,7 @@ namespace SystemEscola.Models
                 var lista = new List<Curso>();
                 var comando = _conn.Query();
 
-                comando.CommandText = "SELECT * FROM Curso";
+                comando.CommandText = "SELECT * FROM Curso, Escola WHERE Curso.id_esc_fk = Escola_id_cur";
                 MySqlDataReader reader = comando.ExecuteReader();
 
                 while (reader.Read())
@@ -62,6 +62,7 @@ namespace SystemEscola.Models
                     curso.CargaHoraria = DAOHelper.GetString(reader, "carga_horaria_cur");
                     curso.Turno = DAOHelper.GetString(reader, "turno_cur");
                     curso.Descricao = DAOHelper.GetString(reader, "descricao_cur");
+                    curso.Escola = DAOHelper.GetString(reader, "nome_fantasia_esc");
 
                     lista.Add(curso);
 
